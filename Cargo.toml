@@ -1,0 +1,20 @@
+[package]
+name = "atcoder"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.cargo-compete]
+config = "compete.toml"
+
+[package.metadata.cargo-compete.bin]
+atcoder = { name = "atcoder-atcoder", problem = "https://atcoder.jp/contests/atcoder/<FIXME: screen name of the problem>"}
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+proconio = "0.4.5"
+ac-library-rs = "0.1.1"
+
+[[bin]]
+name = "atcoder-atcoder"
+path = "./src/bin/atcoder.rs"
