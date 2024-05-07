@@ -148,8 +148,6 @@ fn multiple_matrix(a: &Vec<Vec<i64>>, b: &Vec<Vec<i64>>) -> Vec<Vec<i64>> {
     ret
 }
 
-const MOD: usize = 1000000007;
-
 fn main() {
     input! {
         n:usize,

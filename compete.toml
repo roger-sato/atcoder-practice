@@ -41,7 +41,7 @@ fn main() {
 
 [template.new]
 # `edition` for `Cargo.toml`.
-edition = "2018"
+edition = "2021"
 # `profile` for `Cargo.toml`.
 #
 # By setting this, you can run tests with `opt-level=3` while enabling `debug-assertions` and `overflow-checks`.
@@ -50,7 +50,8 @@ edition = "2018"
 #opt-level = 3
 #'''
 dependencies = '''
-#proconio = { version = "=0.3.6", features = ["derive"] }
+proconio = { version = "=0.4.5", features = ["derive"] }
+ac-library-rs = { version = "=0.1.1" }
 '''
 dev-dependencies = '''
 #atcoder-202004-lock = { git = "https://github.com/qryxip/atcoder-202004-lock" }
@@ -99,7 +100,7 @@ path = "./{{ contest }}"
 
 [test]
 # Toolchain for the test. (optional)
-toolchain = "1.42.0"
+toolchain = "1.70.0"
 # Profile for `cargo build`. ("dev" | "release")
 #
 # Defaults to `"dev"`.
@@ -108,7 +109,7 @@ toolchain = "1.42.0"
 [submit]
 kind = "file"
 path = "{{ src_path }}"
-language_id = "4050"
+language_id = "5054"
 #[submit]
 #kind = "command"
 #args = ["cargo", "equip", "--exclude-atcoder-crates", "--resolve-cfgs", "--remove", "docs", "--minify", "libs", "--rustfmt", "--check", "--bin", "{{ bin_name }}"]
