@@ -9,7 +9,23 @@ const MOD: usize = 1000000007;
 
 fn main() {
     input! {
-        n:usize,
+        s:Chars,
+        t:Chars,
     }
-    println!("{}", n);
+    let mut ans = vec![];
+    let mut i = 0;
+    for x in s {
+        while x != t[i] {
+            i += 1
+        }
+        ans.push(i + 1);
+        i += 1;
+    }
+    println!(
+        "{}",
+        ans.iter()
+            .map(|x| x.to_string())
+            .collect::<Vec<String>>()
+            .join(" ")
+    );
 }

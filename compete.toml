@@ -100,7 +100,7 @@ path = "./{{ contest }}"
 
 [test]
 # Toolchain for the test. (optional)
-toolchain = "1.70.0"
+#toolchain = "1.70.0"
 # Profile for `cargo build`. ("dev" | "release")
 #
 # Defaults to `"dev"`.
@@ -114,3 +114,8 @@ language_id = "5054"
 #kind = "command"
 #args = ["cargo", "equip", "--exclude-atcoder-crates", "--resolve-cfgs", "--remove", "docs", "--minify", "libs", "--rustfmt", "--check", "--bin", "{{ bin_name }}"]
 #language_id = "4050"
+
+[submit.transpile]
+kind = "command"
+args = ["(シェルスクリプト 絶対パスのほうがいいかも).sh", "{{ bin_name }}"]
+language_id = "5054"
