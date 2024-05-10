@@ -10,6 +10,17 @@ const MOD: usize = 1000000007;
 fn main() {
     input! {
         n:usize,
+        ab:[(isize,isize);n]
     }
-    println!("{}", n);
+    let mut mi = 0;
+    let mut mx = 0;
+    for (i, (a, b)) in ab.iter().enumerate() {
+        if b - a > mx {
+            mx = b - a;
+            mi = i
+        }
+    }
+    let ans: isize = ab.iter().map(|&x| x.0).sum();
+
+    println!("{}", ans - ab[mi].0 + ab[mi].1);
 }
