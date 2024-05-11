@@ -1,51 +1,3 @@
-#![allow(unused_imports)]
-use ac_library::math;
-use proconio::input;
-use proconio::marker::{Bytes, Chars};
-use std::collections::VecDeque;
-use std::{cmp, f64::consts::PI, mem::swap, usize};
-
-trait Transpose<'a, Elem, Iter, T>
-where
-    Elem: 'a,
-    Iter: IntoIterator<Item = &'a Elem>,
-    T: IntoIterator<Item = Iter>,
-{
-    fn transpose(self) -> Transposed<'a, Elem, Iter>;
-}
-
-impl<'a, Elem, Iter, T> Transpose<'a, Elem, Iter, T> for T
-where
-    Elem: 'a,
-    Iter: IntoIterator<Item = &'a Elem>,
-    T: IntoIterator<Item = Iter>,
-{
-    fn transpose(self) -> Transposed<'a, Elem, Iter> {
-        Transposed {
-            iters: self.into_iter().map(IntoIterator::into_iter).collect(),
-        }
-    }
-}
-
-struct Transposed<'a, Elem, Iter>
-where
-    Elem: 'a,
-    Iter: IntoIterator<Item = &'a Elem>,
-{
-    iters: Vec<Iter::IntoIter>,
-}
-
-impl<'a, Elem, Iter> Iterator for Transposed<'a, Elem, Iter>
-where
-    Elem: 'a,
-    Iter: IntoIterator<Item = &'a Elem>,
-{
-    type Item = Vec<&'a Elem>;
-    fn next(&mut self) -> Option<Self::Item> {
-        self.iters.iter_mut().map(Iterator::next).collect()
-    }
-}
-
 #[derive(Debug, Clone)]
 struct Matrix {
     rows: usize,
@@ -144,30 +96,7 @@ fn multiple_matrix(a: &Vec<Vec<i64>>, b: &Vec<Vec<i64>>) -> Vec<Vec<i64>> {
             }
         }
     }
-
     ret
-}
-
-fn main() {
-    input! {
-        n:usize,
-        b:usize,
-        k: usize,
-        u: [usize;k]
-    }
-    let mut a = vec![vec![0; b]; b];
-    let mut aa = vec![vec![vec![0; b]; b]; (n as f64).log2().ceil() as usize + 1];
-
-    for i in 0..b {
-        for &j in &u {
-            a[(i * 10 + j) % b][i] += 1;
-        }
-    }
-    aa[0] = a;
-
-    for i in 0..((n as f64).log2().ceil() as usize) {
-        aa[i + 1] = multiple_matrix(&aa[i], &aa[i])
-    }
 }
 
 #[cfg(test)]
