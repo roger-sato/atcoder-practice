@@ -1,0 +1,42 @@
+[package]
+name = "arc141"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.cargo-compete.bin]
+arc141-a = { alias = "a", problem = "https://atcoder.jp/contests/arc141/tasks/arc141_a" }
+arc141-b = { alias = "b", problem = "https://atcoder.jp/contests/arc141/tasks/arc141_b" }
+arc141-c = { alias = "c", problem = "https://atcoder.jp/contests/arc141/tasks/arc141_c" }
+arc141-d = { alias = "d", problem = "https://atcoder.jp/contests/arc141/tasks/arc141_d" }
+arc141-e = { alias = "e", problem = "https://atcoder.jp/contests/arc141/tasks/arc141_e" }
+arc141-f = { alias = "f", problem = "https://atcoder.jp/contests/arc141/tasks/arc141_f" }
+
+[[bin]]
+name = "arc141-a"
+path = "src/bin/a.rs"
+
+[[bin]]
+name = "arc141-b"
+path = "src/bin/b.rs"
+
+[[bin]]
+name = "arc141-c"
+path = "src/bin/c.rs"
+
+[[bin]]
+name = "arc141-d"
+path = "src/bin/d.rs"
+
+[[bin]]
+name = "arc141-e"
+path = "src/bin/e.rs"
+
+[[bin]]
+name = "arc141-f"
+path = "src/bin/f.rs"
+
+[dependencies]
+proconio = { version = "=0.4.5", features = ["derive"] }
+ac-library-rs = { version = "=0.1.1" }
+
+[dev-dependencies]
