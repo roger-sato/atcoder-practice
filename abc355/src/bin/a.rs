@@ -9,7 +9,17 @@ const MOD: usize = 1000000007;
 
 fn main() {
     input! {
-        n:usize,
+        a:usize,
+        b:usize,
     }
-    println!("{}", n);
+    if a == b {
+        println!("-1");
+        return;
+    }
+    let ans = vec![1, 2, 3];
+    for &x in ans.iter() {
+        if x != a && x != b {
+            println!("{}", x)
+        }
+    }
 }
